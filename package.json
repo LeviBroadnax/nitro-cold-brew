@@ -1,0 +1,29 @@
+{
+  "author": "",
+  "dependencies": {
+    "@react-three/drei": "^9.105.4",
+    "@react-three/fiber": "^8.16.2",
+    "@uidotdev/usehooks": "^2.4.1",
+    "just-shuffle": "^4.2.0",
+    "leva": "^0.9.35",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "description": "WebGL coffee dynamics experiment",
+  "devDependencies": {
+    "@types/react-dom": "^18.3.0",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.10"
+  },
+  "license": "ISC",
+  "main": "index.tsx",
+  "name": "nitro-cold-brew",
+  "scripts": {
+    "build": "vite build --config  .dev/vite.config.js",
+    "dev": "vite",
+    "preview": "vite preview",
+    "test": "echo todo: Make Tests && exit 1"
+  },
+  "type": "module",
+  "version": "1.0.0"
+}

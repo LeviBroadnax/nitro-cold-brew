@@ -1,0 +1,17 @@
+.footer {
+  width: 80svw;
+  max-width: 80svw;
+  height: min-content;
+  text-align: right;
+  transition: all 0.2s ease-in;
+  overflow: hidden;
+}
+.footer::after {
+  content: "©️ 2024";
+}
+.footer:hover {
+  transform: translateY(-5svh) scale(1.4);
+}
+.author {
+  margin: 10px;
+}

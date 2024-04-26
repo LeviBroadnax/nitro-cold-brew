@@ -1,0 +1,13 @@
+{
+  "arrowParens": "avoid",
+  "embeddedLanguageFormatting": "auto",
+  "endOfLine": "lf",
+  "experimentalTernaries": true,
+  "htmlWhitespaceSensitivity": "css",
+  "printWidth": 80,
+  "proseWrap": "always",
+  "quoteProps": "consistent",
+  "tabWidth": 2,
+  "trailingComma": "none",
+  "useTabs": false
+}

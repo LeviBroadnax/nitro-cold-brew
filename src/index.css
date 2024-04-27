@@ -27,3 +27,6 @@ canvas {
   width: 100svw;
   height: 94svh;
 }
+.leva label {
+  text-transform: capitalize;
+}

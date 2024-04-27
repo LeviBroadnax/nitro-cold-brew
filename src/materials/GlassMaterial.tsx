@@ -1,9 +1,7 @@
-import React from "react";
-
 import { MeshPhysicalMaterialProps } from "@react-three/fiber";
 import { useControls } from "leva";
 
-export default function GlassMaterial() {
+export function GlassMaterial() {
   const props: MeshPhysicalMaterialProps = useControls(
     "Glass",
     {
@@ -16,7 +14,7 @@ export default function GlassMaterial() {
       clearcoat: 0.55,
       clearcoatRoughness: 0.25,
       ior: 1.2,
-      thickness: 30,
+      thickness: 30
     },
     { collapsed: true }
   );

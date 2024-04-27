@@ -1,1 +1,8 @@
-* text=auto
+* text=lf
+*.tsx text
+*.ts text
+*.css text
+*.html text
+*.glsl text
+*.frag text
+*.vert text

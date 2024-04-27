@@ -4,22 +4,23 @@ import glsl from "vite-plugin-glsl";
 import { resolve } from "path";
 import { defineConfig } from "vite";
 
-const server = {
-  hmr: {
-    clientPort: 443,
-  },
-};
-
-const glslConfig = {
-  include: ["./**/*.frag", "./**/*.vert"],
-};
-
 export default defineConfig({
-  server,
+  server: {
+    hmr: {
+      clientPort: 443
+    }
+  },
   resolve: {
     alias: {
-      "@src": resolve(__dirname, "./src"),
-    },
+      "@shaders": resolve(__dirname, "./src/shaders"),
+      "@components": resolve(__dirname, "./src/components"),
+      "@materials": resolve(__dirname, "./src/materials")
+    }
   },
-  plugins: [react(), glsl(glslConfig)],
+  plugins: [
+    react(),
+    glsl({
+      include: ["./src/shaders/*.frag", "./src/shaders/*.vert"]
+    })
+  ]
 });

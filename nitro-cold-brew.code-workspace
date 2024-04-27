@@ -1,0 +1,66 @@
+{
+  "extensions": {
+    "recommendations": [
+      "wix.vscode-import-cost",
+      "esbenp.prettier-vscode",
+      "christian-kohler.npm-intellisense"
+    ]
+  },
+  "folders": [
+    {
+      "path": "./"
+    }
+  ],
+  "settings": {
+    "[css]": {
+      "editor.suggest.insertMode": "replace",
+      "editor.suggest.showColors": true,
+      "editor.suggest.showCustomcolors": true
+    },
+    "css.format.maxPreserveNewLines": 1,
+    "css.format.spaceAroundSelectorSeparator": true,
+    "css.lint.float": "warning",
+    "css.lint.hexColorLength": "error",
+    "css.lint.idSelector": "error",
+    "css.lint.ieHack": "error",
+    "css.lint.important": "warning",
+    "css.lint.importStatement": "warning",
+    "css.lint.universalSelector": "warning",
+    "css.lint.zeroUnits": "warning",
+    "editor.codeActionsOnSave": {
+      "addMissingImports": "explicit",
+      "source.fixAll": "explicit",
+      "source.organizeImports": "explicit",
+      "source.sort.json": "explicit"
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.detectIndentation": false,
+    "editor.formatOnSave": true,
+    "editor.inlineSuggest.enabled": true,
+    "editor.insertSpaces": true,
+    "editor.linkedEditing": true,
+    "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "all",
+    "editor.rulers": [80, 120],
+    "editor.stablePeek": true,
+    "editor.suggest.filterGraceful": true,
+    "editor.suggest.showColors": false,
+    "editor.suggest.showCustomcolors": false,
+    "editor.suggest.showSnippets": false,
+    "editor.tabCompletion": "on",
+    "editor.tabSize": 2,
+    "editor.unicodeHighlight.ambiguousCharacters": true,
+    "editor.unicodeHighlight.invisibleCharacters": true,
+    "explorer.excludeGitIgnore": true,
+    "explorer.fileNesting.enabled": true,
+    "files.encoding": "utf8",
+    "files.eol": "\n",
+    "files.saveConflictResolution": "overwriteFileOnDisk",
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "git.autofetch": true,
+    "html.format.indentInnerHtml": true,
+    "html.format.maxPreserveNewLines": 1,
+    "javascript.updateImportsOnFileMove.enabled": "always"
+  }
+}

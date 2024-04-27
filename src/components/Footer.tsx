@@ -1,8 +1,7 @@
-import React from "react";
-import "./footer.css";
 import shuffle from "just-shuffle";
+import "./footer.css";
 const authors = shuffle(["Levi Broadnax 🐰", "Winston Palace 😺"]);
-export default function Footer() {
+export function Footer() {
   return (
     <div>
       <hr></hr>

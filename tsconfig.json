@@ -8,6 +8,11 @@
     "moduleDetection": "auto",
     "moduleResolution": "Bundler",
     "outDir": "dist",
+    "paths": {
+      "@components": ["./src/components"],
+      "@materials": ["./src/materials"],
+      "@shaders": ["./src/shaders"]
+    },
     "sourceMap": true,
     "target": "ESNext",
     "types": ["vite-plugin-glsl/ext"]

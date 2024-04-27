@@ -8,11 +8,15 @@ import { Carafe } from "./components/Carafe";
 
 export default function App() {
   const { width, height } = useWindowSize();
-  const carafeProps = useControls({
-    rotation: [0, 0, 0],
-    transparent: true,
-    opacity: 0.3,
+  const carafeProps = useControls("Carafe", {
+    rotation: {
+      value: [0, 0, 0],
+      step: Math.PI / 32,
+      min: -2 * Math.PI,
+      max: 2 * Math.PI,
+    },
   });
+
   return (
     <Canvas>
       <ambientLight intensity={Math.PI / 2} />

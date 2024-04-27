@@ -9,7 +9,8 @@
     "moduleResolution": "Bundler",
     "outDir": "dist",
     "sourceMap": true,
-    "target": "ESNext"
+    "target": "ESNext",
+    "types": ["vite-plugin-glsl/ext"]
   },
   "lib": ["ESNext"]
 }

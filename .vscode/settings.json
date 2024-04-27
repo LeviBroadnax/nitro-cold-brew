@@ -48,5 +48,8 @@
   "git.autofetch": true,
   "html.format.indentInnerHtml": true,
   "html.format.maxPreserveNewLines": 1,
-  "javascript.updateImportsOnFileMove.enabled": "always"
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "[glsl]": {
+    "editor.defaultFormatter": "raczzalan.webgl-glsl-editor"
+  }
 }

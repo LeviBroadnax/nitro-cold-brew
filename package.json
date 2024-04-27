@@ -1,5 +1,5 @@
 {
-  "author": "",
+  "author": "Levi Broadnax, James Masino, Winston Palace",
   "dependencies": {
     "@react-three/drei": "^9.105.4",
     "@react-three/fiber": "^8.16.2",

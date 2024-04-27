@@ -1,6 +1,6 @@
 import shuffle from "just-shuffle";
 import "./footer.css";
-const authors = shuffle(["Levi Broadnax 🐰", "Winston Palace 😺"]);
+const authors = shuffle(["Levi Broadnax 🐰", "Winston Palace 😺", "James Masino 🐱‍👤"]);
 export function Footer() {
   return (
     <div>

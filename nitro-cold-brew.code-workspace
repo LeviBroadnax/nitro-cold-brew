@@ -51,7 +51,7 @@
     "editor.tabSize": 2,
     "editor.unicodeHighlight.ambiguousCharacters": true,
     "editor.unicodeHighlight.invisibleCharacters": true,
-    "explorer.excludeGitIgnore": true,
+    "explorer.excludeGitIgnore": false,
     "explorer.fileNesting.enabled": true,
     "files.encoding": "utf8",
     "files.eol": "\n",

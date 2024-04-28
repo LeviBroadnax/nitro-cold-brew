@@ -9,6 +9,7 @@
       "label": "Show Clip",
       "value": true
     },
+    "Collapsed": true,
     "Glass": {
       "label": "Show Glass",
       "value": true
@@ -34,6 +35,7 @@
     }
   },
   "Environment": {
+    "Collapsed": true,
     "Sky": {
       "azimuth": {
         "value": 0
@@ -68,6 +70,7 @@
       "adjustCamera": {
         "value": 1.2
       },
+      "Collapsed": true,
       "environment": {
         "value": false
       },
@@ -92,11 +95,19 @@
     "Coffee": {
       "value": "#422518"
     },
+    "Collapsed": false,
     "Cream": {
       "value": "#fffdd0"
     },
+    "Direction": {
+      "value": [1.0, 0.5]
+    },
     "Floor": {
       "value": -0.06
+    },
+    "FragmentShader": {
+      "options": [0, 1, 2],
+      "value": 0
     },
     "Mix": {
       "value": 1.0
@@ -104,6 +115,16 @@
     "Scale": {
       "step": 0.005,
       "value": 0.98
+    },
+    "Steepness": {
+      "value": 1.0
+    },
+    "VertexShader": {
+      "options": [0, 1],
+      "value": 0
+    },
+    "WaveLength": {
+      "value": 1.0
     }
   }
 }

@@ -5,7 +5,9 @@ import { useControls } from "leva";
 
 export function Environment({ children }) {
   const config = useConfig(e => e.Environment);
-  const skyProps = useControls("Sky", config.Sky);
+  const skyProps = useControls("Sky", config.Sky, {
+    collapsed: config.Collapsed
+  });
   const stageProps = useControls(
     "Stage",
     extend(true, config.Stage, {
@@ -30,7 +32,10 @@ export function Environment({ children }) {
           "warehouse"
         ]
       }
-    })
+    }),
+    {
+      collapsed: config.Collapsed
+    }
   );
   return (
     <>

@@ -8,7 +8,7 @@ interface ILevaConfig {
         value?: boolean | number | string | number[] | Vector3Props;
         step?: number;
       }
-    | ILevaConfig;
+    | (ILevaConfig & { Collapsed?: boolean });
 }
 
 export interface IConfigStore {

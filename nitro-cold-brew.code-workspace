@@ -3,12 +3,16 @@
     "recommendations": [
       "wix.vscode-import-cost",
       "esbenp.prettier-vscode",
-      "christian-kohler.npm-intellisense"
+      "christian-kohler.npm-intellisense",
+      "raczzalan.webgl-glsl-editor"
     ]
   },
   "folders": [
     {
       "path": "./"
+    },
+    {
+      "path": "../threejs/journey/4.shaders"
     }
   ],
   "settings": {
@@ -16,6 +20,9 @@
       "editor.suggest.insertMode": "replace",
       "editor.suggest.showColors": true,
       "editor.suggest.showCustomcolors": true
+    },
+    "[glsl]": {
+      "editor.defaultFormatter": "raczzalan.webgl-glsl-editor"
     },
     "css.format.maxPreserveNewLines": 1,
     "css.format.spaceAroundSelectorSeparator": true,
@@ -61,6 +68,28 @@
     "git.autofetch": true,
     "html.format.indentInnerHtml": true,
     "html.format.maxPreserveNewLines": 1,
-    "javascript.updateImportsOnFileMove.enabled": "always"
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "webgl-glsl-editor.codeInjection": true,
+    "webgl-glsl-editor.codeInjectionSource": [
+      "#version 300 es",
+      "precision highp float;",
+      "uniform vec3 iResolution;",
+      "uniform float iTime;",
+      "uniform float iTimeDelta;",
+      "uniform int iFrame;",
+      "uniform float iChannelTime[4];",
+      "uniform vec3 iChannelResolution[4];",
+      "uniform vec4 iMouse;",
+      "uniform sampler2D iChannel0;",
+      "uniform sampler2D iChannel1;",
+      "uniform sampler2D iChannel2;",
+      "uniform sampler2D iChannel3;",
+      "uniform vec4 iDate;",
+      "uniform float iSampleRate;",
+      "varying vec vUv;"
+    ],
+    "webgl-glsl-editor.format.placeSpaceAfterKeywords": true,
+    "webgl-glsl-editor.format.placeSpaceAroundUnaryOperators": true,
+    "webgl-glsl-editor.strictRename": false
   }
 }

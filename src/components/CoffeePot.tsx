@@ -23,7 +23,8 @@ export function CoffeePot(props) {
         min: -2 * Math.PI,
         max: 2 * Math.PI
       }
-    })
+    }),
+    { collapsed: coffeePot.Collapsed }
   );
   return (
     <group {...{ ...props, ...coffeeProps }} dispose={null}>

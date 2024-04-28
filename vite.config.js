@@ -6,6 +6,7 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   server: {
+    watch: "./src",
     hmr: {
       clientPort: 443
     }

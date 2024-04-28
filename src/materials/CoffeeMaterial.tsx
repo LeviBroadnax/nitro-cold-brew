@@ -1,7 +1,7 @@
 import { shaderMaterial } from "@react-three/drei";
 import { MaterialNode } from "@react-three/fiber";
 import { CoffeeShader } from "@shaders";
-import { Color, IUniform, ShaderMaterial } from "three";
+import { Color, IUniform, ShaderMaterial, Vector2 } from "three";
 
 export const Coffee = shaderMaterial(
   CoffeeShader.u,
@@ -14,12 +14,18 @@ export interface ICoffee extends ShaderMaterial {
 }
 
 interface ICoffeeUniforms {
-  [uniform: string]: IUniform<number | Color>;
+  [uniform: string]: IUniform<number | Color | Vector2>;
   uAlpha: IUniform<number>;
   uMix: IUniform<number>;
   uTime: IUniform<number>;
   uCoffee: IUniform<Color>;
   uCream: IUniform<Color>;
+  uResolution: IUniform<Vector2>;
+  uWaveLength: IUniform<number>;
+  uSteepness: IUniform<number>;
+  uDirection: IUniform<Vector2>;
+  uFragmentShader: IUniform<number>;
+  uVertexShader: IUniform<number>;
 }
 
 interface CoffeeElement {

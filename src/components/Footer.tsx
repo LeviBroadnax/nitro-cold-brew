@@ -1,7 +1,7 @@
 import { useConfig } from "@store";
 import { useToggle } from "@uidotdev/usehooks";
 import shuffle from "just-shuffle";
-import { useEffect } from "react";
+import { MouseEvent, useEffect } from "react";
 import "./footer.css";
 
 export function Footer() {
@@ -13,14 +13,20 @@ export function Footer() {
     style.setProperty("color-scheme", darkTheme ? "dark" : "light");
   }, [darkTheme]);
 
+  function onThemeClick(ev: MouseEvent) {
+    ev.preventDefault();
+    ev.stopPropagation();
+    toggleDarkTheme();
+  }
+
   return (
     <div>
       <hr></hr>
       <div className="footer">
         <button
           className={`fab ${darkTheme ? "dark" : "light"}`}
-          onClick={toggleDarkTheme}></button>
-        {shuffle(authors).map((e, key) => (
+          onClick={onThemeClick}></button>
+        {shuffle(authors).map((e: string, key) => (
           <span className="author" key={key}>
             {e}
           </span>

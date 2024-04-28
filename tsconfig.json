@@ -12,7 +12,8 @@
     "paths": {
       "@components": ["./src/components"],
       "@materials": ["./src/materials"],
-      "@shaders": ["./src/shaders"]
+      "@shaders": ["./src/shaders"],
+      "@store": ["./src/store"]
     },
     "sourceMap": true,
     "target": "ESNext",

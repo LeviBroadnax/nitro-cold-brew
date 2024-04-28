@@ -5,11 +5,13 @@
     "@react-three/fiber": "^8.16.2",
     "@uidotdev/usehooks": "^2.4.1",
     "@vitejs/plugin-react": "^4.2.1",
+    "just-extend": "^6.2.0",
     "just-shuffle": "^4.2.0",
     "leva": "^0.9.35",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "three": "^0.164.1"
+    "three": "^0.164.1",
+    "zustand": "^4.5.2"
   },
   "description": "WebGL coffee dynamics experiment",
   "devDependencies": {

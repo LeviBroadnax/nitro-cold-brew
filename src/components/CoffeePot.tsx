@@ -1,4 +1,6 @@
 import { useGLTF } from "@react-three/drei";
+import { useConfig } from "@store";
+import extend from "just-extend";
 import { useControls } from "leva";
 import { VesselInterior } from "./VesselInterior";
 
@@ -9,30 +11,27 @@ const config = {
 };
 
 export function CoffeePot(props) {
+  const coffeePot = useConfig(e => e.CoffeePot);
   const { nodes, materials } = useGLTF(
     `${config[config.quality]}/${config.model}`
   );
-  const coffeeProps = useControls("Coffee Pot", {
-    "rotation": {
-      value: [0, 0, 0],
-      step: Math.PI / 32,
-      min: -2 * Math.PI,
-      max: 2 * Math.PI
-    },
-    "Show Glass": true,
-    "Show Rim": true,
-    "Show Lid": true,
-    "Show LidHandle": true,
-    "Show Clip": true,
-    "Show Handle": true
-  });
+  const coffeeProps = useControls(
+    "Coffee Pot",
+    extend(true, coffeePot, {
+      rotation: {
+        step: Math.PI / 32,
+        min: -2 * Math.PI,
+        max: 2 * Math.PI
+      }
+    })
+  );
   return (
     <group {...{ ...props, ...coffeeProps }} dispose={null}>
       <group scale={0.01}>
         <mesh
           castShadow
           receiveShadow
-          visible={coffeeProps["Show Glass"]}
+          visible={coffeeProps.Glass}
           geometry={nodes.glass_1.geometry}
           material={materials.glass_1001}
         />
@@ -40,35 +39,35 @@ export function CoffeePot(props) {
         <mesh
           castShadow
           receiveShadow
-          visible={coffeeProps["Show Rim"]}
+          visible={coffeeProps.Rim}
           geometry={nodes.chromeRim_1.geometry}
           material={materials.chrome_1001}
         />
         <mesh
           castShadow
           receiveShadow
-          visible={coffeeProps["Show Lid"]}
+          visible={coffeeProps.Lid}
           geometry={nodes.lidTop_1.geometry}
           material={materials.plastic_1001}
         />
         <mesh
           castShadow
           receiveShadow
-          visible={coffeeProps["Show LidHandle"]}
+          visible={coffeeProps.LidHandle}
           geometry={nodes.lidHandle_1.geometry}
           material={materials.plastic_1001}
         />
         <mesh
           castShadow
           receiveShadow
-          visible={coffeeProps["Show Clip"]}
+          visible={coffeeProps.Clip}
           geometry={nodes.clip_1.geometry}
           material={materials.plastic_1001}
         />
         <mesh
           castShadow
           receiveShadow
-          visible={coffeeProps["Show Handle"]}
+          visible={coffeeProps.Handle}
           geometry={nodes.handle_1.geometry}
           material={materials.plastic_1001}
         />
@@ -76,5 +75,3 @@ export function CoffeePot(props) {
     </group>
   );
 }
-
-useGLTF.preload(`${config[config.quality]}/${config.model}`);

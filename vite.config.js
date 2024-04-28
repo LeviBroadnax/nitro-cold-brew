@@ -12,9 +12,10 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@shaders": resolve(__dirname, "./src/shaders"),
       "@components": resolve(__dirname, "./src/components"),
-      "@materials": resolve(__dirname, "./src/materials")
+      "@materials": resolve(__dirname, "./src/materials"),
+      "@shaders": resolve(__dirname, "./src/shaders"),
+      "@store": resolve(__dirname, "./src/store")
     }
   },
   plugins: [

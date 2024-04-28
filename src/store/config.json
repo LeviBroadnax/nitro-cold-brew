@@ -1,0 +1,109 @@
+{
+  "//README 1": "* Lowercase properties are built in",
+  "//README 2": "* Do not modify any properties keys",
+  "//README 3": "* Have fun",
+  "//README Customizing Leva": "https://github.com/pmndrs/leva/blob/main/docs/inputs.md",
+  "Authors": ["Levi Broadnax 🐰", "Winston Palace 😺", "James Masino 🐱‍👤"],
+  "CoffeePot": {
+    "Clip": {
+      "label": "Show Clip",
+      "value": true
+    },
+    "Glass": {
+      "label": "Show Glass",
+      "value": true
+    },
+    "Handle": {
+      "label": "Show Handle",
+      "value": true
+    },
+    "Lid": {
+      "label": "Show Lid",
+      "value": true
+    },
+    "LidHandle": {
+      "label": "Show LidHandle",
+      "value": true
+    },
+    "Rim": {
+      "label": "Show Rim",
+      "value": true
+    },
+    "rotation": {
+      "value": [0, 0, 0]
+    }
+  },
+  "Environment": {
+    "Sky": {
+      "azimuth": {
+        "value": 0
+      },
+      "distance": {
+        "value": 0
+      },
+      "inclination": {
+        "value": 0
+      },
+      "mieCoefficient": {
+        "value": 0
+      },
+      "mieDirectionalG": {
+        "value": 0
+      },
+      "rayleigh": {
+        "value": 0
+      },
+      "sunPosition": {
+        "value": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      "turbidity": {
+        "value": 0
+      }
+    },
+    "Stage": {
+      "adjustCamera": {
+        "value": 1.2
+      },
+      "environment": {
+        "value": false
+      },
+      "intensity": {
+        "value": 1
+      },
+      "preset": {
+        "value": "upfront"
+      },
+      "shadows": {
+        "value": "contact"
+      }
+    }
+  },
+  "Vessel": {
+    "Alpha": {
+      "value": 1.0
+    },
+    "Ceiling": {
+      "value": 0.01
+    },
+    "Coffee": {
+      "value": "#422518"
+    },
+    "Cream": {
+      "value": "#fffdd0"
+    },
+    "Floor": {
+      "value": -0.06
+    },
+    "Mix": {
+      "value": 1.0
+    },
+    "Scale": {
+      "step": 0.005,
+      "value": 0.98
+    }
+  }
+}

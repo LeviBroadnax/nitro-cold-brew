@@ -1,52 +1,52 @@
 import { Coffee, ICoffee } from "@materials";
 import { extend, useFrame } from "@react-three/fiber";
+import { useConfig } from "@store";
+import merge from "just-extend";
 import { useControls } from "leva";
 import { useRef, useState } from "react";
 import { Color, ColorRepresentation } from "three";
 
 extend({ Coffee });
 export function VesselInterior({ nodes, name = "Coffee" }) {
-  const [scale, setScale] = useState(0.98);
-  const interiorGeometry = nodes.clone();
-  interiorGeometry.scale(...new Array(3).fill(scale));
+  const vessel = useConfig(e => e.Vessel);
   const coffeeRef = useRef<ICoffee>();
 
-  const onColorChange = (key: string, value: ColorRepresentation) =>
+  const [scale, setScale] = useState(vessel.Scale.value);
+  const interiorGeometry = nodes.clone();
+  interiorGeometry.scale(...new Array(3).fill(scale));
+
+  const onColorChange = (key: string) => (value: ColorRepresentation) =>
     (coffeeRef.current.uniforms[key].value = new Color(value));
-  const onValueChange = (key: string, value: any) =>
+
+  const onValueChange = (key: string) => (value: any) =>
     (coffeeRef.current.uniforms[key].value = value);
 
-  useControls(name, {
-    "Floor": {
-      value: -0.06,
-      onChange: value => onValueChange("uFloor", value)
-    },
-    "Ceiling": {
-      value: 0.01,
-      onChange: value => onValueChange("uCeiling", value)
-    },
-    "Coffee": {
-      value: "#422518",
-      onChange: value => onColorChange("uCoffee", value)
-    },
-    "Cream": {
-      value: "#fffdd0",
-      onChange: value => onColorChange("uCream", value)
-    },
-    "mix": {
-      value: 1.0,
-      onChange: value => onValueChange("uMix", value)
-    },
-    "alpha": {
-      value: 1.0,
-      onChange: value => onValueChange("uAlpha", value)
-    },
-    "interior scale": {
-      value: scale,
-      onChange: setScale,
-      step: 0.005
-    }
-  });
+  useControls(
+    name,
+    merge(true, vessel, {
+      Floor: {
+        onChange: onValueChange("uFloor")
+      },
+      Ceiling: {
+        onChange: onValueChange("uCeiling")
+      },
+      Coffee: {
+        onChange: onColorChange("uCoffee")
+      },
+      Cream: {
+        onChange: onColorChange("uCream")
+      },
+      Mix: {
+        onChange: onValueChange("uMix")
+      },
+      Alpha: {
+        onChange: onValueChange("uAlpha")
+      },
+      Scale: {
+        onChange: setScale
+      }
+    })
+  );
 
   useFrame((_state, delta) => {
     coffeeRef.current.uniforms.uTime.value += delta;

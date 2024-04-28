@@ -9,7 +9,7 @@ import "./index.css";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <div className="leva">
-      <Leva oneLineLabels />
+      <Leva />
     </div>
     <App />
     <Footer />

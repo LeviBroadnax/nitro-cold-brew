@@ -1,7 +1,7 @@
-import { Plastic } from "@materials";
+import { Glass, Plastic } from "@materials";
 import { useGLTF } from "@react-three/drei";
 import { useControls } from "leva";
-import { CarafeInterior } from "./Carafe.Interior";
+import { VesselInterior } from "./VesselInterior";
 
 export function Carafe() {
   const { nodes } = useGLTF("/Coffe.glb");
@@ -20,7 +20,12 @@ export function Carafe() {
 
   return (
     <group {...carafe} dispose={null}>
-      <CarafeInterior carafeNodes={nodes.Cylinder002["geometry"]} />
+      <group name="Glass">
+        <mesh geometry={nodes.Cylinder002["geometry"]}>
+          <Glass />
+        </mesh>
+      </group>
+      <VesselInterior nodes={nodes.Cylinder002["geometry"]} name="Carafe" />
       <group name="Plastic">
         <mesh geometry={nodes.Cylinder004["geometry"]}>
           <Plastic />

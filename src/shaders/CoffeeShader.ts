@@ -6,6 +6,8 @@ const coffeeUniforms = {
   uAlpha: 1.0,
   uMix: 1.0,
   uTime: 0.0,
+  uFloor: -0.06,
+  uCeiling: 0.01,
   uCoffee: new Color("#422518"),
   uCream: new Color("#fffdd0")
 };

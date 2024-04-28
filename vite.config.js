@@ -18,7 +18,9 @@ export default defineConfig({
     }
   },
   plugins: [
-    react(),
+    react({
+      include: "src/**/*.tsx"
+    }),
     glsl({
       include: ["./src/shaders/*.frag", "./src/shaders/*.vert"]
     })

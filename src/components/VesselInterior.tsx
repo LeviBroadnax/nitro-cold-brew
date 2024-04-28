@@ -1,13 +1,13 @@
-import { Coffee, Glass, ICoffee } from "@materials";
+import { Coffee, ICoffee } from "@materials";
 import { extend, useFrame } from "@react-three/fiber";
 import { useControls } from "leva";
 import { useRef, useState } from "react";
 import { Color, ColorRepresentation } from "three";
 
 extend({ Coffee });
-export function CarafeInterior({ carafeNodes }) {
+export function VesselInterior({ nodes, name = "Coffee" }) {
   const [scale, setScale] = useState(0.98);
-  const interiorGeometry = carafeNodes.clone();
+  const interiorGeometry = nodes.clone();
   interiorGeometry.scale(...new Array(3).fill(scale));
   const coffeeRef = useRef<ICoffee>();
 
@@ -16,7 +16,15 @@ export function CarafeInterior({ carafeNodes }) {
   const onValueChange = (key: string, value: any) =>
     (coffeeRef.current.uniforms[key].value = value);
 
-  useControls("Coffee", {
+  useControls(name, {
+    "Floor": {
+      value: -0.06,
+      onChange: value => onValueChange("uFloor", value)
+    },
+    "Ceiling": {
+      value: 0.01,
+      onChange: value => onValueChange("uCeiling", value)
+    },
     "Coffee": {
       value: "#422518",
       onChange: value => onColorChange("uCoffee", value)
@@ -45,13 +53,8 @@ export function CarafeInterior({ carafeNodes }) {
   });
 
   return (
-    <group name="Glass">
-      <mesh geometry={carafeNodes}>
-        <Glass />
-      </mesh>
-      <mesh name="Coffee" geometry={interiorGeometry}>
-        <coffee ref={coffeeRef} />
-      </mesh>
-    </group>
+    <mesh name="Coffee" geometry={interiorGeometry}>
+      <coffee ref={coffeeRef} />
+    </mesh>
   );
 }

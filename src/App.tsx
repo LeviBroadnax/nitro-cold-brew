@@ -1,5 +1,4 @@
-import { CoffeePot } from "@components";
-import { OrbitControls, Stage } from "@react-three/drei";
+import { CoffeePot, Environment } from "@components";
 import { Canvas } from "@react-three/fiber";
 import { useWindowSize } from "@uidotdev/usehooks";
 
@@ -8,11 +7,9 @@ export default function App() {
 
   return (
     <Canvas>
-      <ambientLight intensity={Math.PI / 2} />
-      <Stage>
+      <Environment>
         <CoffeePot />
-        <OrbitControls makeDefault />
-      </Stage>
+      </Environment>
     </Canvas>
   );
 }

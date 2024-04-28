@@ -1,17 +1,44 @@
 .footer {
   width: 80svw;
   max-width: 80svw;
-  height: min-content;
+  height: max-content;
+  max-height: max-content;
   text-align: right;
-  transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in-out;
   overflow: hidden;
 }
+
 .footer::after {
   content: "©️ 2024";
 }
-.footer:hover {
-  transform: translateY(-5svh) scale(1.4);
-}
+
 .author {
   margin: 10px;
+}
+
+.footer .author:hover {
+  transform: translateY(-5svh) scale(1.4);
+}
+
+button.fab {
+  font-size: 1.5rem;
+  border-radius: 50%;
+  border: 0px dashed green;
+  width: 2rem;
+  height: 2rem;
+  float: left;
+  line-height: 1rem;
+  text-align: center;
+  margin-left: 0.25rem;
+  padding-left: 0;
+}
+
+.fab.dark::after {
+  content: "🌚";
+  padding-left: 0;
+}
+
+.fab.light::after {
+  content: "🌞";
+  padding-left: 0;
 }

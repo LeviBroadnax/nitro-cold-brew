@@ -20,17 +20,21 @@ export function Footer() {
   }
 
   return (
-    <div>
-      <hr></hr>
-      <div className="footer">
+    <div className="footer">
+      <div className="left">
         <button
-          className={`fab ${darkTheme ? "dark" : "light"}`}
+          className={`fab theme-selector ${darkTheme ? "dark" : "light"}`}
           onClick={onThemeClick}></button>
-        {shuffle(authors).map((e: string, key) => (
-          <span className="author" key={key}>
-            {e}
-          </span>
-        ))}
+      </div>
+      <div className="middle"></div>
+      <div className="right">
+        <div className="authors">
+          {shuffle(authors).map((e: string, key) => (
+            <span className="author" key={key}>
+              {e}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );

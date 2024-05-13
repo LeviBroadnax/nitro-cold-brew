@@ -1,44 +1,73 @@
 .footer {
-  width: 80svw;
-  max-width: 80svw;
-  height: max-content;
-  max-height: max-content;
-  text-align: right;
+  width: 100svw;
+  max-width: 100svw;
+  display: flex;
   transition: all 0.2s ease-in-out;
   overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  padding: 0;
+  border-top: 1px solid #d2d2d2cc;
 }
 
-.footer::after {
-  content: "©️ 2024";
+.left {
+  margin-left: 1.25rem;
+  align-items: center;
+}
+
+.middle {
+  margin-left: auto;
+  visibility: hidden;
+}
+
+.right {
+  margin-right: 1.25rem;
+  display: flex;
 }
 
 .author {
-  margin: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
-.footer .author:hover {
-  transform: translateY(-5svh) scale(1.4);
+.authors {
+  display: flex;
+  align-content: space-between;
+  align-items: center;
+}
+
+.authors::after {
+  content: "©️ 2024";
 }
 
 button.fab {
   font-size: 1.5rem;
   border-radius: 50%;
-  border: 0 dashed green;
+  border: 0;
   width: 2rem;
   height: 2rem;
-  float: left;
   line-height: 1rem;
   text-align: center;
-  margin-left: 0.25rem;
-  padding-left: 0;
+  content: "";
+  padding: 0;
 }
 
 .fab.dark::after {
   content: "🌚";
-  padding-left: 0;
 }
 
 .fab.light::after {
   content: "🌞";
-  padding-left: 0;
+}
+
+@media only screen and (max-width: 767px) {
+  .right {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .footer {
+    display: none;
+  }
 }

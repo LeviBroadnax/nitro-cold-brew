@@ -72,13 +72,13 @@
       },
       "Collapsed": true,
       "environment": {
-        "value": false
+        "value": "apartment"
       },
       "intensity": {
-        "value": 1
+        "value": 0.3
       },
       "preset": {
-        "value": "upfront"
+        "value": "rembrandt"
       },
       "shadows": {
         "value": "contact"

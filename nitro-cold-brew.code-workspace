@@ -10,9 +10,6 @@
   "folders": [
     {
       "path": "./"
-    },
-    {
-      "path": "../threejs/journey/4.shaders"
     }
   ],
   "settings": {

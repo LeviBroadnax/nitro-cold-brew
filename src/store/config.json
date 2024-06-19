@@ -3,11 +3,7 @@
   "//README 2": "* Do not modify any properties keys",
   "//README 3": "* Have fun",
   "//README Customizing Leva": "https://github.com/pmndrs/leva/blob/main/docs/inputs.md",
-  "Authors": [
-    "Levi Broadnax 🐰",
-    "Winston Palace 😺",
-    "James Masino 🐱‍👤"
-  ],
+  "Authors": ["Levi Broadnax 🐰", "Winston Palace 😺", "James Masino 🐱‍👤"],
   "CoffeePot": {
     "Clip": {
       "label": "Show Clip",
@@ -35,11 +31,7 @@
       "value": true
     },
     "rotation": {
-      "value": [
-        0,
-        0,
-        0
-      ]
+      "value": [0, 0, 0]
     }
   },
   "Environment": {
@@ -49,7 +41,7 @@
         "value": 0
       },
       "distance": {
-        "value": 10
+        "value": 0
       },
       "inclination": {
         "value": 0
@@ -108,20 +100,13 @@
       "value": "#fffdd0"
     },
     "Direction": {
-      "value": [
-        1.0,
-        0.5
-      ]
+      "value": [1.0, 0.5]
     },
     "Floor": {
       "value": -0.06
     },
     "FragmentShader": {
-      "options": [
-        0,
-        1,
-        2
-      ],
+      "options": [0, 1, 2],
       "value": 0
     },
     "Mix": {
@@ -135,10 +120,7 @@
       "value": 1.0
     },
     "VertexShader": {
-      "options": [
-        0,
-        1
-      ],
+      "options": [0, 1],
       "value": 0
     },
     "WaveLength": {

@@ -1,14 +1,12 @@
 param(
   [switch]$install = $false,
   [string]$source_folder = '../public',
-  [string]$draco_encoder = './draco/build/Release/draco_encoder.exe',
-  [float]$compression_threshhold = .95
+  [string]$draco_encoder = './draco/build/Release/draco_encoder.exe'
 )
 if ($args[0] -in @('-h', 'help')) {
   Write-Host '-install ='$install', Forces draco encoder reinstall (requires cmake, python3, c++ build tools)'
   Write-Host '-source_folder ='$source_folder', Folder of assets to be compressed'
   Write-Host '-draco_encoder ='$draco_encoder', Decoder path'
-  Write-Host '-compression_threshhold ='$compression_threshhold', Minimum compression ratio to keep the encoded version'
   return;
 }
 
@@ -73,58 +71,57 @@ function AssertDracoInstallation() {
   return $false
 }
 #endregion Install
-
-function ProcessQueue {
-  param([System.Collections.Queue]$q)
-  while ($q.Count) {
-    $source = $q.Dequeue()
-    $target = $source -replace '\.gl(b|tf)$', '.draco.glb'
-    Encode $source $target
-  }
-  return $q
-}
-
 function EnqueueModels {
   param([string]$folder)
   $q = New-Object System.Collections.Queue
   foreach ($file in Get-ChildItem -Path $folder | Where-Object { $_.extension -in ".gltf", ".glb" }) {
-    if (-not $file.FullName.Contains(".draco")) {
-      $q.Enqueue($file.FullName)
-    }
+    $q.Enqueue($file.FullName)
   }
   foreach ($subfolder in Get-ChildItem -Path $folder -Directory) {
     EnqueueModels -folder $subfolder.FullName
   }
   return $q
 }
-
-function Encode([string]$source, [string]$target) {
-  & $draco_encoder -i $source -o $target -cl 10
-  if (-not (Test-Path $target)) {
-    Write-Host "Please Fix $source"
-    return
+function Encode([string]$source) {
+  $target = $source -replace '\.gl(b|tf)$', '.drc'
+  & $draco_encoder -i $source -o $target
+  if ($target.Length -and (Test-Path -Path $target)) {
+    $saved = (Get-Item $source).Length - (Get-Item $target).Length
+    if ($saved -gt 0) {
+      return $saved 
+    }
   }
+  return 0
+}
 
-  $sourceSize = (Get-Item $source).Length
-  $targetSize = (Get-Item $target).Length
-  $ratio = (($sourceSize - $targetSize) / $sourceSize)
-  $compressionRatio = "{0:P2}" -f $ratio
-  Write-Host "Compression Ratio: $compressionRatio"
-  if ($ratio -le $compression_threshhold) {
-    return
+function ProcessQueue {
+  param([System.Collections.Queue]$q)
+  $a = 0
+  $b = 0
+  while ($q.Count) {
+    $source = $q.Dequeue()
+    $res = Encode $source
+    $savings = $res[$res.Count - 1]
+    if ($savings -gt 0) {
+      $a++
+      $b += $savings
+    }
   }
-
-  $choice = Read-Host "Do you want to keep the target file '$target'? (Y/N)"
-  if (!($choice.ToLower().Contains("y"))) {
-    Remove-Item $target -Force
-  }
+  return @($a, $b)
+}
+$testing = $false
+$test_source_folder = './draco/testdata/'
+if ($testing) {
+  $source_folder = $test_source_folder
 }
 
 function Run {  
   if (AssertDracoInstallation) {
-    $modelQueue = EnqueueModels -folder (Resolve-Path $source_folder)
-    ProcessQueue $modelQueue
+    $modelQueue = EnqueueModels($source_folder)
+    $res = ProcessQueue($modelQueue)
+    $fileCount = $res[0]
+    $totalSaved = ($res[1] / (1024 * 1024)).ToString("F4")
+    Write-Host "Saved $totalSaved MB across $fileCount files"
   }
-  
 }
 Run

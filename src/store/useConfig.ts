@@ -14,6 +14,9 @@ interface ILevaConfig {
 export interface IConfigStore {
   Authors: string[];
   CoffeePot: ILevaConfig;
+  CoffeeMug: ILevaConfig;
+  LowerCabinetSink: ILevaConfig;
+  Sink: ILevaConfig;
   Environment: ILevaConfig;
   Vessel: ILevaConfig;
 }
@@ -21,6 +24,9 @@ export interface IConfigStore {
 export const useConfig = create<IConfigStore>(set => ({
   Authors: config.Authors,
   CoffeePot: config.CoffeePot,
+  CoffeeMug: config.CoffeeMug,
+  LowerCabinetSink: config.LowerCabinetSink,
+  Sink: config.Sink,
   Environment: config.Environment,
   Vessel: config.Vessel
 }));

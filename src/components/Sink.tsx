@@ -1,30 +1,72 @@
-import { useEffect, useState } from "react";
-import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
-import * as THREE from "three";
+import { useGLTF } from "@react-three/drei";
+import { useConfig } from "@store";
+import extend from "just-extend";
+import { useControls } from "leva";
 
-const model = "/sink/4k/sink.drc";
-const dracoPath = "https://www.gstatic.com/draco/versioned/decoders/1.5.7/";
-const loader = new DRACOLoader();
-loader.setDecoderPath(dracoPath);
-/**
- * Throw this file away after you figure out how to use draco with fiber
- */
+const config = {
+  "model": "sink.glb",
+  "4k": "/sink/4k",
+  "quality": "4k"
+};
+
 export function Sink(props) {
-  const [sinkModel, setSinkModel] = useState(null);
-
-  useEffect(() => {
-    loader.load(model, function (geometry) {
-      const material = new THREE.MeshStandardMaterial({ color: 0xa5a5a5 });
-      const mesh = new THREE.Mesh(geometry, material);
-      mesh.castShadow = true;
-      mesh.receiveShadow = true;
-      setSinkModel(mesh);
-    });
-  }, []);
-
+  const sink = useConfig(e => e.Sink);
+  const { nodes, materials } = useGLTF(
+    `${config[config.quality]}/${config.model}`
+  );
+  const sinkProps = useControls("Sink", extend(true, sink, {}), {
+    collapsed: true
+  });
   return (
-    <group {...props} dispose={null}>
-      {sinkModel && <primitive object={sinkModel} />}
+    <group
+      {...{ ...props, ...sinkProps }}
+      position={[-0.5, 0.004, -0.32]}
+      rotation={[0, 0, 0]}
+      dispose={null}>
+      <group scale={0.01}>
+        <mesh
+          castShadow
+          receiveShadow
+          visible={sinkProps["Sink"]}
+          geometry={nodes.l_faucetHandle_1["geometry"]}
+          material={materials.chrome_mtl_1001}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          visible={sinkProps["Sink"]}
+          geometry={nodes.r_faucetHandle_1["geometry"]}
+          material={materials.chrome_mtl_1001}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          visible={sinkProps["Sink"]}
+          geometry={nodes.spout_1["geometry"]}
+          material={materials.chrome_mtl_1001}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          visible={sinkProps["Sink"]}
+          geometry={nodes.faucetBase_1["geometry"]}
+          material={materials.chrome_mtl_1001}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          visible={sinkProps["Sink"]}
+          geometry={nodes.sink_1["geometry"]}
+          material={materials.steel_mtl_1001}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          visible={sinkProps["Sink"]}
+          geometry={nodes.drain_1["geometry"]}
+          material={materials.chrome_mtl_1001}
+        />
+      </group>
     </group>
   );
 }

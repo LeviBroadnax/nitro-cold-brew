@@ -10,7 +10,7 @@ export function Footer() {
 
   useEffect(() => {
     const { style } = document.documentElement;
-    style.setProperty("color-scheme", darkTheme ? "dark" : "light");
+    style.setProperty("color-scheme", darkTheme ? "light" : "dark");
   }, [darkTheme]);
 
   function onThemeClick(ev: MouseEvent) {

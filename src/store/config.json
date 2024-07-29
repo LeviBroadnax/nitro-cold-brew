@@ -3,13 +3,18 @@
   "//README 2": "* Do not modify any properties keys",
   "//README 3": "* Have fun",
   "//README Customizing Leva": "https://github.com/pmndrs/leva/blob/main/docs/inputs.md",
-  "Authors": ["Levi Broadnax 🐰", "Winston Palace 😺", "James Masino 🐱‍👤"],
+  "Authors": ["Levi Broadnax 🐰", "Winston Palace 😺", "James Masino 🐆"],
+  "CoffeeMug": {
+    "Mug": {
+      "label": "Show Mug",
+      "value": true
+    }
+  },
   "CoffeePot": {
     "Clip": {
       "label": "Show Clip",
       "value": true
     },
-    "Collapsed": true,
     "Glass": {
       "label": "Show Glass",
       "value": true
@@ -29,9 +34,6 @@
     "Rim": {
       "label": "Show Rim",
       "value": true
-    },
-    "rotation": {
-      "value": [0, 0, 0]
     }
   },
   "Environment": {
@@ -72,17 +74,29 @@
       },
       "Collapsed": true,
       "environment": {
-        "value": "apartment"
+        "value": "sunset"
       },
       "intensity": {
-        "value": 0.3
+        "value": 1
       },
       "preset": {
-        "value": "rembrandt"
+        "value": "soft"
       },
       "shadows": {
-        "value": "contact"
+        "value": "true"
       }
+    }
+  },
+  "LowerCabinetSink": {
+    "LowerCabinets": {
+      "label": "Show Cabinets",
+      "value": true
+    }
+  },
+  "Sink": {
+    "Sink": {
+      "label": "Show Sink",
+      "value": true
     }
   },
   "Vessel": {
